@@ -67,6 +67,17 @@ export interface AccountInput {
   note?: string;
 }
 
+export interface AccountUpdateInput {
+  id: string;
+  name: string;
+  type: string;
+  currency?: string;
+  balance: number;
+  color?: string;
+  icon?: string;
+  note?: string;
+}
+
 export interface TransactionUpdateInput {
   id: string;
   date: string;

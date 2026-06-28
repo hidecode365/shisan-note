@@ -1,5 +1,5 @@
 import { invoke } from "@tauri-apps/api/core";
-import type { Account, AccountInput, Category, Transaction, TransactionInput, TransactionUpdateInput } from "@/types";
+import type { Account, AccountInput, AccountUpdateInput, Category, Transaction, TransactionInput, TransactionUpdateInput } from "@/types";
 
 export async function getAccounts(): Promise<Account[]> {
   return invoke("get_accounts");
@@ -7,6 +7,14 @@ export async function getAccounts(): Promise<Account[]> {
 
 export async function createAccount(input: AccountInput): Promise<Account> {
   return invoke("create_account", { input });
+}
+
+export async function updateAccount(input: AccountUpdateInput): Promise<Account> {
+  return invoke("update_account", { input });
+}
+
+export async function deleteAccount(id: string): Promise<void> {
+  return invoke("delete_account", { id });
 }
 
 export async function getCategories(): Promise<Category[]> {

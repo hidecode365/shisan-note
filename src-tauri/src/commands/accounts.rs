@@ -69,6 +69,69 @@ pub fn get_accounts(state: State<'_, DbState>) -> Result<Vec<Account>, String> {
     Ok(accounts)
 }
 
+#[derive(Debug, Deserialize)]
+pub struct AccountUpdateInput {
+    pub id: String,
+    pub name: String,
+    #[serde(rename = "type")]
+    pub account_type: String,
+    pub currency: Option<String>,
+    pub balance: i64,
+    pub color: Option<String>,
+    pub icon: Option<String>,
+    pub note: Option<String>,
+}
+
+#[tauri::command]
+pub fn update_account(input: AccountUpdateInput, state: State<'_, DbState>) -> Result<Account, String> {
+    let conn = state.0.lock().map_err(|e| e.to_string())?;
+    let now = Utc::now().format("%Y-%m-%dT%H:%M:%SZ").to_string();
+    let currency = input.currency.unwrap_or_else(|| "JPY".to_string());
+
+    conn.execute(
+        "UPDATE accounts SET name=?1, type=?2, currency=?3, balance=?4, color=?5, icon=?6, note=?7, updated_at=?8 WHERE id=?9",
+        params![input.name, input.account_type, currency, input.balance, input.color, input.icon, input.note, now, input.id],
+    )
+    .map_err(|e| e.to_string())?;
+
+    let account = conn
+        .query_row(
+            "SELECT id, name, type, currency, balance, color, icon, sort_order, is_active, note, created_at, updated_at FROM accounts WHERE id=?1",
+            params![input.id],
+            |row| Ok(Account {
+                id: row.get(0)?,
+                name: row.get(1)?,
+                account_type: row.get(2)?,
+                currency: row.get(3)?,
+                balance: row.get(4)?,
+                color: row.get(5)?,
+                icon: row.get(6)?,
+                sort_order: row.get(7)?,
+                is_active: row.get(8)?,
+                note: row.get(9)?,
+                created_at: row.get(10)?,
+                updated_at: row.get(11)?,
+            }),
+        )
+        .map_err(|e| e.to_string())?;
+
+    Ok(account)
+}
+
+#[tauri::command]
+pub fn delete_account(id: String, state: State<'_, DbState>) -> Result<(), String> {
+    let conn = state.0.lock().map_err(|e| e.to_string())?;
+    let now = Utc::now().format("%Y-%m-%dT%H:%M:%SZ").to_string();
+
+    conn.execute(
+        "UPDATE accounts SET is_active=0, updated_at=?1 WHERE id=?2",
+        params![now, id],
+    )
+    .map_err(|e| e.to_string())?;
+
+    Ok(())
+}
+
 #[tauri::command]
 pub fn create_account(input: AccountInput, state: State<'_, DbState>) -> Result<Account, String> {
     let conn = state.0.lock().map_err(|e| e.to_string())?;
