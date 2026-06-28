@@ -1,13 +1,16 @@
-import { Button } from "@/components/ui/button";
+import { Sidebar } from "@/components/layout/Sidebar";
+import { Topbar } from "@/components/layout/Topbar";
+import { EntryPage } from "@/pages/EntryPage";
 
 function App() {
   return (
-    <div className="p-8 flex flex-col gap-4">
-      <h1 className="text-2xl font-bold">ShiSan Note</h1>
-      <div className="flex gap-2">
-        <Button>保存</Button>
-        <Button variant="outline">キャンセル</Button>
-        <Button variant="destructive">削除</Button>
+    <div className="flex h-screen overflow-hidden bg-background text-foreground">
+      <Sidebar />
+      <div className="flex flex-col flex-1 overflow-hidden">
+        <Topbar title="記帳" />
+        <main className="flex-1 overflow-hidden">
+          <EntryPage />
+        </main>
       </div>
     </div>
   );
