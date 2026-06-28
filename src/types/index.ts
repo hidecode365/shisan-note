@@ -79,6 +79,8 @@ export interface TransactionUpdateInput {
   payment_method?: string;
 }
 
+export type Page = 'entry' | 'accounts' | 'dashboard' | 'transactions' | 'categories' | 'settings';
+
 export interface DraftRow {
   id: string;
   date: string;
