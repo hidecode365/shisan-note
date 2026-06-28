@@ -29,8 +29,10 @@
 | `docs/features/F07-charts.md` | グラフ分析 |
 | `docs/features/F08-budget.md` | 予算管理 |
 | `docs/features/F09-import-ai.md` | AI画面解析（v1.5以降） |
+| `docs/features/F10-settings.md` | 設定画面（ショートカット設定・将来の拡張基盤） |
 | `docs/features/F10-subscription.md` | サブスクリプション課金（v2.0以降） |
 | `docs/adr/0001-local-first.md` | なぜローカル保存を選んだか |
+| `docs/adr/0002-inline-entry-ux.md` | 記帳UIをインライン表入力方式に変更 |
 
 ---
 
@@ -47,6 +49,7 @@
 | 5 | カテゴリ管理 | F05 |
 | 6 | CSVインポート | F06 |
 | 7 | カテゴリ別グラフ | F07（基本のみ） |
+| 8 | 設定画面（ショートカット設定・将来の拡張基盤） | F10 |
 
 ### v1.5（ファン獲得後）
 
