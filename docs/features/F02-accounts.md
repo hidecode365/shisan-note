@@ -3,7 +3,7 @@
 ## 概要
 
 複数の口座・資産を登録・管理する機能。
-銀行口座・証券口座・仮想通貨・モバイルペイ残高など、あらゆる資産の器を一元管理する。
+銀行口座・証券口座・仮想通貨・電子マネー残高など、あらゆる資産の器を一元管理する。
 
 ---
 
@@ -11,12 +11,12 @@
 
 | タイプ | アイコン | カラー | 例 |
 | --- | --- | --- | --- |
-| bank（銀行） | BuildingBank | ブルー | 三菱UFJ・楽天銀行・住信SBI |
-| securities（証券） | ChartCandle | アンバー | SBI証券・楽天証券・松井証券 |
-| crypto（仮想通貨） | CurrencyBitcoin | コーラル | bitFlyer・Coincheck・GMOコイン |
-| mobile_pay（モバイルペイ） | DeviceMobile | ティール | PayPay・LINE Pay・Suica・nanaco |
+| bank（銀行） | Landmark | ブルー | 三菱UFJ・楽天銀行・住信SBI |
+| securities（証券） | ChartCandlestick | アンバー | SBI証券・楽天証券・松井証券 |
+| crypto（仮想通貨） | Bitcoin | コーラル | bitFlyer・Coincheck・GMOコイン |
+| mobile_pay（電子マネー） | Smartphone | ティール | PayPay・LINE Pay・Suica・nanaco |
 | cash（現金） | Wallet | グレー | 財布・小口現金 |
-| other（その他） | Dots | グレー | ポイント残高等 |
+| other（その他） | MoreHorizontal | グレー | ポイント残高等 |
 
 ---
 
@@ -64,4 +64,9 @@
 
 ## 実装メモ（Claude Codeが追記する欄）
 
-- （未実装）
+- `get_accounts` / `create_account` は accounts.rs に実装済み（実装時点から存在）
+- `update_account` / `delete_account` を accounts.rs に追加。delete は論理削除（is_active=0）のみ
+- `update_account` は balance も上書きする（手動調整 = 編集ダイアログの「残高（手動調整）」欄）
+- AccountsPage は タイプ別グループ表示、総資産サマリー、追加・編集・削除ダイアログを実装
+- 削除確認は Dialog（window.confirm は不使用）
+- アイコンは lucide-react を使用：Landmark / ChartCandlestick / Bitcoin / Smartphone / Wallet / MoreHorizontal
