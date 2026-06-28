@@ -5,5 +5,7 @@
       "fileMatch": ["components.json"],
       "url": "https://ui.shadcn.com/schema.json"
     }
-  ]
+  ],
+  "css.validate": false,
+  "tailwindCSS.experimental.classRegex": []
 }
