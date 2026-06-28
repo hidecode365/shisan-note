@@ -41,11 +41,11 @@
 
 ## Git / GitHub
 
-- [ ] GitHub 2FA設定
-- [ ] GitHubにパブリックリポジトリ作成（shisan-note）
-- [ ] ローカルでGit初期化（git init）
-- [ ] .gitignore 作成
-- [ ] 初回コミット・リモートpush
+- [x] GitHub 2FA設定
+- [x] GitHubにパブリックリポジトリ作成（shisan-note）
+- [x] ローカルでGit初期化（git init）
+- [x] .gitignore 作成
+- [x] 初回コミット・リモートpush
 
 ---
 
@@ -59,31 +59,31 @@
 
 ## 実装：バックエンド（Rust）
 
-- [ ] src-tauri/src/db.rs（SQLite接続・マイグレーション）
-- [ ] src-tauri/src/commands/accounts.rs（CRUD）
-- [ ] src-tauri/src/commands/categories.rs（CRUD）
-- [ ] src-tauri/src/commands/transactions.rs（CRUD・残高同時更新）
-- [ ] lib.rs に各コマンドを登録
+- [x] src-tauri/src/db.rs（SQLite接続・マイグレーション）
+- [x] src-tauri/src/commands/accounts.rs（CRUD）
+- [x] src-tauri/src/commands/categories.rs（CRUD）
+- [x] src-tauri/src/commands/transactions.rs（CRUD・残高同時更新）
+- [x] lib.rs に各コマンドを登録
 
 ---
 
 ## 実装：フロントエンド（React）
 
-- [ ] src/types/index.ts（共通型定義）
-- [ ] src/lib/tauri.ts（invoke ラッパー）
-- [ ] src/components/layout/Sidebar.tsx
-- [ ] src/components/layout/Topbar.tsx
+- [x] src/types/index.ts（共通型定義）
+- [x] src/lib/tauri.ts（invoke ラッパー）
+- [x] src/components/layout/Sidebar.tsx
+- [x] src/components/layout/Topbar.tsx
 - [ ] React Router 導入・ルーティング設定
-- [ ] src/pages/EntryPage.tsx（左右分割レイアウト）
-- [ ] src/components/features/entry/EntryForm.tsx
-- [ ] src/components/features/entry/TransactionList.tsx
-- [ ] src/components/features/entry/AccountStrip.tsx
+- [x] src/pages/EntryPage.tsx（左右分割レイアウト）
+- [x] src/components/features/entry/EntryForm.tsx
+- [x] src/components/features/entry/TransactionList.tsx
+- [x] src/components/features/entry/AccountStrip.tsx
 
 ---
 
 ## v1.0 MVP 機能
 
-- [ ] F01 記帳フォーム（手動入力）
+- [x] F01 記帳フォーム（手動入力）
 - [ ] F02 口座・資産管理
 - [ ] F03 ダッシュボード
 - [ ] F04 取引一覧・検索
