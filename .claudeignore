@@ -1,0 +1,9 @@
+# .claudeignore（リポジトリルート）
+
+node_modules/
+dist/
+src-tauri/target/
+
+docs/.obsidian/
+docs/.claudian/
+docs/.claude/

@@ -20,3 +20,18 @@ src-tauri/target/
 # OS
 .DS_Store
 Thumbs.db
+
+# Claude Code（個人のローカル権限設定）
+.claude/settings.local.json
+docs/.claude/settings.local.json
+
+# Claudian（セッション履歴・機体固有の設定）
+docs/.claudian/sessions/
+docs/.claudian/claudian-settings.json
+
+# Obsidian（プラグイン本体コードと、開いていたタブなどの端末固有の状態）
+docs/.obsidian/workspace.json
+docs/.obsidian/workspace-mobile.json
+docs/.obsidian/plugins/*/main.js
+docs/.obsidian/plugins/*/manifest.json
+docs/.obsidian/plugins/*/styles.css
