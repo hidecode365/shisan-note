@@ -11,6 +11,8 @@
 - `.claude/rules/backend.md` — Rust バックエンド実装ルール
 - `.claude/rules/frontend.md` — React フロントエンド実装ルール
 
+Claudian は `docs/` 配下のファイルのみを編集する。`src/`・`src-tauri/` への変更提案は歓迎するが、実際の編集は行わず「上位の Claude Code に実装を依頼してください」と伝えて留める。
+
 ---
 
 ## このVaultの構成
